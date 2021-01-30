@@ -67,8 +67,9 @@ nav ul li a:hover, a.active{
 }
 #success-form{
     background-color: #fff;
+    justify-content: center;
+    align-tems: center;
     border-radius: 5px;
-    float: right;
     width: 100%;
     display: none;
 }
