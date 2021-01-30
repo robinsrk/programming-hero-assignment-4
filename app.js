@@ -1,8 +1,13 @@
-
 // two functions called to create event handler in two buttons of eash type of ticket
-form("fc-plus", "fc-minus", "fc-ticket", "firstClassPrice");
-form("eco-plus", "eco-minus", "eco-ticket", "ecoPrice");
+form("fcPlusBtn", "fcMinusBtn", "fcTicket", "firstClassPrice");
+form("ecoPlusBtn", "ecoMinusBtn", "ecoTicket", "ecoPrice");
 
+
+// show book successcul page
+hideUnhide("book-btn", "form", "success-form");
+
+// go home
+hideUnhide("home", "success-form", "form");
 
 // this function takes id of two buttons "+" and "-" to add event handler, ticket amount and price
 function form(btnPlus, btnMinus, ticket, price) {
@@ -51,12 +56,6 @@ function form(btnPlus, btnMinus, ticket, price) {
         }
     })
 }
-
-// show book successcul page
-hideUnhide("book-btn", "form", "success-form");
-
-// go home
-hideUnhide("home", "success-form", "form");
 
 // takes a button to track, and two sections to toggle hide and show them
 function hideUnhide(btn, hide, unhide) {
