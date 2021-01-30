@@ -1,10 +1,12 @@
 
-// two functions called to create
+// two functions called to create event handler in two buttons of eash type of ticket
 form("fc-plus", "fc-minus", "fc-ticket", "firstClassPrice");
 form("eco-plus", "eco-minus", "eco-ticket", "ecoPrice");
 
-// this function takes id of two buttons "+" and "-" to track, ticket amount and price
+
+// this function takes id of two buttons "+" and "-" to add event handler, ticket amount and price
 function form(btnPlus, btnMinus, ticket, price) {
+
 
     // this section is for plus button and for adding ticket prices
     document.getElementById(btnPlus).addEventListener("click", function() {
@@ -18,19 +20,32 @@ function form(btnPlus, btnMinus, ticket, price) {
         updateAmount("vat", vat)
     })
 
-    //this section is for minus button and for removing ticket prices
 
+    //this section is for minus button and for removing ticket prices
+    
     document.getElementById(btnMinus).addEventListener("click", function() {
         let ticketAmount = parseFloat(document.getElementById(ticket).value);
+
+        // checks if ticket amount is greater than 0 while removing tickets
         if (ticketAmount >= 1) {
             ticketAmount--;
+
+            //update ticket amount
             document.getElementById(ticket).value = ticketAmount;
             let ticketPrice = parseFloat(document.getElementById(price).innerText);
+
+            //add subtotal amount
             let subtotal = addAmount("subtotal", -1 * ticketPrice);
+
+            //add vat price
             vat = (subtotal * parseFloat(document.getElementById("vatPercentage").innerText)) / 100;
-            updateAmount("total", subtotal + vat);
             updateAmount("vat", vat)
+
+            // update total price with vat added
+            updateAmount("total", subtotal + vat);
         }
+
+        // if ticket is already 0 and trying to remove more, warns about invalid input
         else {
             alert("Invalid input");
         }
@@ -48,10 +63,12 @@ function hideUnhide(btn, hide, unhide) {
 
     document.getElementById(btn).addEventListener("click", function() {
         const total = parseFloat(document.getElementById("total").innerText);
+
         // checks if the uesr gave valid ticket counts
         if (total > 0) {
             document.getElementById(hide).style.display = "none";
             document.getElementById(unhide).style.display = "block";
+
             // when going homepage, clears all the input field
             if (btn == "home") {
                 setText0("total");
@@ -69,7 +86,7 @@ function hideUnhide(btn, hide, unhide) {
         }
         // shows error when both ticket count is 0 and trying to book
         else {
-            alert("Please select any ticket");
+            alert("Please select at least one ticket");
         }
     })
 }
