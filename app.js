@@ -73,12 +73,12 @@ function hideUnhide(btn, hide, unhide) {
                 setText0("total");
                 setText0("subtotal");
                 setText0("vat");
-                setValue0("fc-ticket");
-                setValue0("eco-ticket");
+                setValue0("fcTicket");
+                setValue0("ecoTicket");
             }
             else {
-                document.getElementById("orderFcTicket").innerText = document.getElementById("fc-ticket").value;
-                document.getElementById("orderEcoTicket").innerText = document.getElementById("eco-ticket").value;
+                document.getElementById("orderFcTicket").innerText = document.getElementById("fcTicket").value;
+                document.getElementById("orderEcoTicket").innerText = document.getElementById("ecoTicket").value;
                 document.getElementById("orderTotal").innerText = document.getElementById("total").innerText;
 
             }
